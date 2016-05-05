@@ -3,14 +3,45 @@
 <head>
 	<meta charset="UTF-8">
 	<title>DZ 160424</title>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="script1.js"></script>
+	<script type="text/javascript" src="script2.js"></script>
+	<style type="text/css">
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th:first-child {
+			width: 20%;
+		}
+		th {
+			width: 40%;
+		}
+		th, td {
+			border: 1px solid black;
+		}
+	</style>
+}
 </head>
 <body>
 	<h1>ДЗ</h1>
 	<div>
 		<h2>Задание 1</h2>
-		<p>Написать функцию, передав в которую исходный объект, мы получим новый объект вида:</p>
-		<p id="res1"><input type="button" value="Run" onclick="dz1()"></input></p>
+		<p>Написать функцию, передав в которую исходный объект, мы получим новый объект</p>
+		<form>
+		  <input type="button" value="Run" onclick="runDZ1()" onmouseover="showObject()">
+		</form>
+		<table>
+			<tr>
+				<th>Исходный объект:</th>
+				<th>Модифицированный объект:</th>
+				<th>Результат работы функции:</th>
+			</tr>
+			<tr>
+				<td id="obj">...</td>
+				<td>...</td>
+				<td>...</td>
+			</tr>
+		</table>
 	</div>
 
 	
