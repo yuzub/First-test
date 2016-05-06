@@ -14,6 +14,7 @@ let obj = {
   str1: "Lorem ipsum dolor sit amet.",
   num2: 123.987654321
 };
+
 let objRes = {};
 
 // Задание 1
@@ -22,8 +23,8 @@ function dz1obj(ob) {
 	
 	// Добавление свойств в новый объект
 	objResult.propNames = Object.keys(ob);
-	objResult["количество собственных свойств"] = objResult.propNames.length;
 	objResult.propTypes = [];
+	objResult["количество собственных свойств"] = objResult.propNames.length;
 	
 	// Модификация исходного объекта (работа по ссылке)
 	for (let prop in ob) {
@@ -43,7 +44,7 @@ function dz1obj(ob) {
 
 // Обработчики наведения и нажатия на кнопку ДЗ 1
 function showObject() {
-	document.getElementById("obj").innerHTML = printObj(obj);
+	document.getElementsByTagName("td")[0].innerHTML = printObj(obj);
 };
 
 function runDZ1() {
