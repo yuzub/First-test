@@ -28,13 +28,13 @@ function dz1obj(ob) {
 	
 	// Модификация исходного объекта (работа по ссылке)
 	for (let prop in ob) {
-		let type = typeof obj[prop]
+		let type = typeof ob[prop]
 		objResult.propTypes.push(type);
 		if (type === "number") {
-			obj[prop] = +obj[prop].toFixed(2);
+			ob[prop] = +ob[prop].toFixed(2);
 		}
 		if (type === "string") {
-			obj[prop] = obj[prop].toUpperCase();
+			ob[prop] = ob[prop].toUpperCase();
 		}
 	}
 	Object.preventExtensions(ob);
@@ -53,7 +53,7 @@ function runDZ1() {
 	tds[1].innerHTML = printObj(obj);
 	tds[2].innerHTML = printObj(objRes);
 }	
-// Вспомогательная функция для вывода объектов на страницу
+// Вспомогательная функция для вывода содержимого объектов на страницу
 function printObj(o) {
 	let objToStr = "";
 	for (let prop in o) {

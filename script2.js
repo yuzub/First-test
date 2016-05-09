@@ -8,31 +8,31 @@ let student = {
 		courseName: "HTML",
 		teacher: "Ivanov",
 		duration: 48,
-		passed: 1,
+		progress: 1,
 		ratings: [4, 5, 4] 
 	}, {
 		courseName: "CSS",
 		teacher: "Sidorov",
 		duration: 48,
-		passed: 1,
+		progress: 1,
 		ratings: [5, 4, 5, 4] 
 	}, {
 		courseName: "JS",
 		teacher: "Smith",
 		duration: 96,
-		passed: 0,
+		progress: 0.2,
 		ratings: [1, 2, 3, 4, 5] 
 	}, {
 		courseName: "Java",
 		teacher: "Smith",
 		duration: 254,
-		passed: 0,
+		progress: 0,
 		ratings: []
 	}, {
 		courseName: "C#",
 		teacher: "Smith",
 		duration: 254,
-		passed: 0
+		progress: 0
 	}],
 	getFullName: function() {
 		return this.name + " " + this.surname;
@@ -50,12 +50,11 @@ let student = {
 			courseName: course,
 			teacher: teacherName,
 			duration: duration_,
-			passed: 0,
+			progress: 0,
 			ratings: []
 		});
 	},
 	getAvarageMarkByCourse: function(course) {
-		let avarage = 0;
 		let courseObj = this.courses.filter( item => item.courseName === course );
 		if (courseObj.length === 0) return null;
 		if ("ratings" in courseObj[0] && courseObj[0].ratings.length !== 0) {
@@ -66,15 +65,40 @@ let student = {
 		}
 	},
 	getAvarageMark: function() {
-
+		let avarage = 0;
+		let avarageByCourse = 0;
+		this.courses.forEach(function(elementObj) {
+			elementObj.ratings.forEach(function(elementNum) {
+				return avarageByCourse;
+			});
+			return avarage;
+		});
 	},
-	addMark: function() {
-
+	addMark: function(course, mark) {
+		if (mark < 1 || 5 < mark) {
+			console.log("addMark ERROR: Wrong mark.");
+			return null;
+		}
+		let courseObj = this.courses.filter( item => item.courseName === course );
+		if (courseObj.length === 0) {
+			console.log("addMark ERROR: Wrong course.");
+			return null;
+		}
+		if ("ratings" in courseObj[0]) {
+			courseObj[0].ratings.push(mark);
+		}else{
+			courseObj[0].ratings = [mark];
+		}
 	},
 	addProgress: function() {
-
+		
 	},
-	getProgress: function() {
-
+	getProgress: function(course) {
+		let courseObj = this.courses.filter( item => item.courseName === course );
+		if (courseObj.length === 0) {
+			console.log("getProgress ERROR: Wrong course.");
+			return null;
+		}
+		return courseObj[0].progress * 100 + "%";
 	}
 };
